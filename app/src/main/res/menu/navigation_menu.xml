@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu tools:showIn="navigation_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/manual"
+            android:icon="@drawable/ic_text_format"
+            android:title="Manual" />
+
+        <item
+            android:id="@+id/upload"
+            android:icon="@drawable/ic_file_upload"
+            android:title="Upload" />
+
+        <item
+            android:id="@+id/Scan"
+            android:icon="@drawable/ic_scanner"
+            android:title="Scan" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_help"
+                android:icon="@drawable/ic_help"
+                android:title="Help" />
+        </menu>
+    </item>
+</menu>
