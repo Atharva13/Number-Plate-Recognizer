@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -24,8 +25,6 @@ public class StartActivity extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        button1 = (Button) findViewById(R.id.b1);
-        button2 = (Button) findViewById(R.id.b2);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.parseColor("#1DA1F2"));
@@ -38,19 +37,6 @@ public class StartActivity extends AppCompatActivity implements NavigationView.O
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openActivity1();
-            }
-        });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openActivity2();
-            }
-        });
 
     }
 
@@ -59,16 +45,16 @@ public class StartActivity extends AppCompatActivity implements NavigationView.O
         switch (item.getItemId())
         {
             case R.id.manual:
-                startActivity(new Intent(StartActivity.this,UserInfo2.class));
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_manual()).commit();
                 break;
 
             case R.id.upload:
                 startActivity(new Intent(StartActivity.this,UploadActivity.class));
+               // getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_upload()).commit();
                 break;
 
             case R.id.Scan:
-                //Intent a = new Intent(StartActivity.this,MainActivity.class);
-                startActivity(new Intent(StartActivity.this,MainActivity.class));
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new fragment_scan()).commit();
                 break;
 
             case R.id.nav_help:
@@ -91,13 +77,8 @@ public class StartActivity extends AppCompatActivity implements NavigationView.O
         }
     }
 
-    public void openActivity1(){
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
-
-    public  void openActivity2(){
-        Intent intent = new Intent(this,UserInfo2.class);
-        startActivity(intent);
-    }
+   /* public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.activity_upload);
+        fragment.onActivityResult(requestCode, resultCode, data);
+    }*/
 }
