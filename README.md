@@ -11,8 +11,6 @@ An Android Application to accept a number plate of the vehicle in image formats(
 * Database - Firebase
 * Android Studio
 
-![number-plate-recognizer]()
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
